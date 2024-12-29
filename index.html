@@ -114,6 +114,12 @@
     border: 1px solid var(--primary);
   }
 
+  .pagebutton:hover {
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    color: var(--bg);
+  }
+
   button {
     cursor: pointer;
   }
@@ -176,6 +182,28 @@
   /* Class to allow text wrapping */
   .wrap-text td {
     white-space: normal;
+  }
+
+  a:link {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: var(--primary);
+    text-decoration: italic;
+  }
+  
+  a:hover {
+    color: var(--primary);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
   }
 </style>
 <body>

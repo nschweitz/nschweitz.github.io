@@ -1256,7 +1256,7 @@ function updateResultCount() {
         last_result = results.values.length;
     }
 
-    counter.innerHTML = "Showing " + first_result + " to " + last_result + " of " + results.values.length + " results";
+    counter.innerHTML = "Showing " + first_result + " to " + last_result + " of " + results.values.length + " results. All data from the excellent <a href='https://ibanez.fandom.com/wiki/Ibanez_Wiki'>Ibanez Wiki</a>.";
 }
 
 function field_name_humanify(field_name) {
