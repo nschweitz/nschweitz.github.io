@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.12.0/sql-wasm.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/blood-and-blade" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/young-best" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/black-great" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/bayone" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/germanika-personal-use" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/kaiserzeitgotisch" rel="stylesheet">
+</head>
+<style>
+:root {
+  --bg: #222;
+  --bright-bg: #333;
+  --fg: #eee;
+  --dim-fg: #888;
+  --soft: #444;
+  --primary: #c30;
+}
+
+@font-face {
+  font-family: 'DS Fette Gotisch';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/static/dsfettegotisch-webfont.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Hintdake';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('https://fonts.cdnfonts.com/s/109379/Hintdakeblackletter-JRgpB.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Black Great';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('https://fonts.cdnfonts.com/s/111296/BlackGreatRegular-ovB84.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'darknorth';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('https://fonts.cdnfonts.com/s/112707/DarkNorth-ARRZx.woff') format('woff');
+}
+
+  @font-face {
+    font-family: 'danger';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('https://fonts.cdnfonts.com/s/118249/DangerGothicRegular-j9D0l.woff') format('woff');
+}
+
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+
+  h1 {
+    font-size: 60px;
+    color: var(--fg);
+    text-shadow: 2px 2px 0px var(--primary); /* Offset x, Offset y, Blur radius, Color */
+  }
+
+  .fraktur {
+    font-family: 'UnifrakturMaguntia';
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  select, input, button {
+    padding: 10px 10px;
+    border: 1px solid var(--soft);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  input:focus {
+    outline: 1px solid var(--primary);
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  .pagebutton {
+    padding: 10px 10px;
+    cursor: pointer;
+    margin-right: 0px;
+  }
+
+  .pagebutton.active {
+    border: 1px solid var(--primary);
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .remove-button:hover {
+    background-color: var(--primary);
+    color: var(--bg);
+  }
+
+  body {
+    font-family: sans-serif;
+    margin: 30px;
+  }
+  
+  table, button, input, select, textarea {
+    font-family: inherit; /* Ensure all elements use the same font */
+  }
+
+  /* Table stuff */
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-left: -1.67em;
+  }
+  
+  /* Style table headers and cells */
+  th, td {
+    border: 1px solid var(--soft);
+    padding: 8px;
+  }
+
+  th {
+    background-color: var(--bright-bg);
+  }
+
+  .invisible {
+    border: 1px solid var(--bg);
+    border-right: 1px solid var(--soft);
+    background-color: var(--bg);
+    color: var(--dim-fg);
+    cursor: pointer;
+  }
+
+  td {
+    /* Truncate text with ellipsis by default */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  tr {
+    background-color: var(--bg);
+  }
+
+  tr:hover {
+    background-color: var(--bright-bg);
+  }
+
+  /* Class to allow text wrapping */
+  .wrap-text td {
+    white-space: normal;
+  }
+</style>
+<body>
+    <!--<h1 style="font-family: 'Hintdake'">All the Ibanezes</h1>-->
+    <!--<h1 class="fraktur"><i>All the Ibanezes</i></h1>-->
+    <!--<h1 style="font-family: 'Young Best'"><i>All the Ibanezes</i></h1>-->
+    <!--<h1 style="font-family: 'Bayone'"><i>All the Ibanezes</i></h1>-->
+    <!--<h1 style="font-family: 'Germanika Personal Use'"><i>All the Ibanezes</i></h1>-->
+    <h1 style="font-family: 'KaiserzeitGotisch'"><i>all the ibanezes</i></h1>
+    <!--<h1 style="font-family: 'Black Great'"><i>All the Ibanezes</i></h1>-->
+    <!--<h1 style="font-family: 'darknorth'"><i>All the Ibanezes</i></h1>-->
+    <!--<h1 style="font-family: 'danger'"><i>All the Ibanezes</i></h1>-->
+    <!--<h1 style="font-family: 'DS Fette Gotisch'"><i>All the Ibanezes</i></h1>-->
+
+    <div id="filters"></div>
+    <button onclick="addFilter()">Add Filter</button>
+
+    <p id="results-text">No results</p>
+
+    <div id="page-buttons-top"></div>
+
+    <!-- Small gap -->
+    <div style="height: 1em;"></div>
+
+    <table id="my-table" border="1">
+    </table>
+
+    <div id="page-buttons-bottom"></div>
+
+    <script src="/static/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+</body>
+</html>
