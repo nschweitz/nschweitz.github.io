@@ -1117,9 +1117,12 @@ function updateFilters() {
                 input.type = "number";
             }
 
+            // Triggers whenever a key is pressed
             input.addEventListener("input", function(event) {
                 filters[index][2] = event.target.value;
+
                 updateResults();
+
                 updateTable();
             });
 
@@ -1176,7 +1179,6 @@ function updatePagingButtonsHelper(id) {
         return button;
     };
 
-    /*
     // First page button
     if (currentPage > 3) {
         const firstButton = createButton("1", () => {
@@ -1189,7 +1191,7 @@ function updatePagingButtonsHelper(id) {
         if (currentPage > 4) {
             const dots = document.createElement("span");
             dots.textContent = "...";
-            dots.style.padding = "10px 15px";
+            dots.style.padding = "10px 8px";
             div.appendChild(dots);
         }
     }
@@ -1216,7 +1218,7 @@ function updatePagingButtonsHelper(id) {
         if (currentPage < totalPages - 3) {
             const dots = document.createElement("span");
             dots.textContent = "...";
-            dots.style.padding = "10px 15px";
+            dots.style.padding = "10px 8px";
             div.appendChild(dots);
         }
 
@@ -1226,19 +1228,6 @@ function updatePagingButtonsHelper(id) {
             window.scrollTo(0, 0);
         });
         div.appendChild(lastButton);
-    }
-    */
-
-    for (let i = 1; i <= totalPages; i++) {
-        const isActive = i === currentPage;
-
-        const button = createButton(i.toString(), () => {
-            startIndex = (i - 1) * results_per_page;
-            updateTable();
-            window.scrollTo(0, 0);
-        }, isActive);
-
-        div.appendChild(button);
     }
 }
 
